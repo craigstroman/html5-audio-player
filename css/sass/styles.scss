@@ -1,0 +1,255 @@
+@import "//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.css";
+
+//General mixins 
+
+//Clearfix mixin
+@mixin clearfix() {
+  *zoom: 1;
+  &:before, &:after {
+    content: " ";
+    display: table;
+  } 
+  &:after {
+    clear: both;
+    display: block; 
+    font-size: 0; 
+    height: 0;    
+    visibility: hidden; 
+  }      
+}
+
+//Media query mixin
+@mixin media($type) {
+  @if $type == tablet {/* Small devices (tablets, 768px and up) */
+    @media (min-width: 768px) and (max-width: 991px) {
+      @content;
+    } 
+  }
+  @else if $type == mediumDesktop {/* Medium devices (desktops, 992px and up) */
+    @media (min-width: 992px) and (max-width: 1100px) {
+      @content;
+    }     
+  }
+  @else if $type == largeDesktop {/* Large devices (large desktops, 1200px and up) */
+    @media (min-width: 1200px) {
+      @content;
+    }       
+  }
+}
+
+//General classes
+.screen-reader-text { /* Reusable, toolbox kind of class */
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+.disabled {
+  color: #666; 
+  cursor: default;
+}
+.show {
+  display: inline-block !important;
+}
+
+//General CSS 
+body {
+  margin: 10px 0 0 0;
+  
+  .container {
+    font-family: arial, helvetica, sans-serif;
+    font-size: 1em;
+    margin: 0 auto;
+    width: 500px;
+    .player {
+      height: 60px;
+      margin: 0;
+      position: relative;
+      width: 400px;
+      @include media(tablet) {
+        width: 470px;
+      }
+      @include media(mediumDesktop) {
+          width: 470px;
+      }         
+      @include media(largeDesktop) {
+          width: 470px;
+      }                 
+      .large-toggle-btn {
+          border: 1px solid #d9d9d9;
+          border-radius: 2px;
+          float: left;
+          font-size: 1.5em;
+          height: 50px;
+          margin: 0 10px 0 0;
+          overflow: hidden;
+          position: relative;
+          text-align: center;
+          vertical-align: bottom;
+          width: 54px;
+          .large-play-btn {
+            &:before {
+              content: "\f04b";
+              font: 1.5em/1.75 "FontAwesome";
+            }               
+            cursor: pointer; 
+            display: inline-block;
+            position: relative;
+            top: -13%;
+          }
+          .large-pause-btn {
+            &:before {
+              content: "\f04c";
+              font: 1.5em/1.75 "FontAwesome";
+            }   
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            top: -13%;            
+          }                   
+      }//end .play-box
+      .info-box {
+        bottom: 10px;
+        left: 65px;
+        position: absolute;
+        top: 15px;
+        .track-info-box {
+          float: left;
+          font-size: 12px;
+          margin: 0 0 6px 0;
+          visibility: hidden;
+          width: 400px; 
+          .track-title-text {
+            display: inline-block;
+          }
+          .audio-time {
+            display: inline-block;
+            padding: 0 0 0 5px;
+            width: 80px;
+          }
+          @include clearfix();
+        }      
+      }
+      .progress-box {
+        float: left;
+        min-width: 270px;
+        position: relative;
+        .progress-cell {
+          height: 12px;
+          position: relative;
+          .progress {
+            background: #fff;
+            border: 1px solid #d9d9d9;
+            height: 8px;
+            position: relative;
+            width: auto;
+            .progress-buffer {
+              background: #337ab7;
+              height: 100%;
+              width: 0;
+            }
+            .progress-indicator {
+              background: #fff;
+              border: 1px solid #bebebe;
+              border-radius: 3px;
+              cursor: pointer;
+              height: 10px;
+              left: 0;
+              overflow: hidden;
+              position: absolute;
+              top: -2px;
+              width: 22px;
+            }
+          }
+        }
+      }//end .prgoress-box
+      .controls-box {
+        bottom: 10px;
+        left: 350px;
+        position: absolute; 
+        .previous-track-btn {
+          &:before {
+            content: "\f049";
+            font: 1em "FontAwesome";
+          }             
+          cursor: pointer;
+          display: inline-block;
+        }
+        .next-track-btn {
+            &:before {
+            content: "\f050";
+            font: 1em "FontAwesome";
+          }             
+          cursor: pointer;
+          display: inline-block;        
+        }           
+      }
+      @include clearfix();
+    }//end .player
+    
+    .play-list {
+      display: block;
+      margin: 0 auto 20px auto;
+      width: 100%;
+      .play-list-row {
+        display: block;
+        margin: 10px 0;
+        width: 100%;
+        .track-title {
+          .playlist-track {
+            &:hover {
+              text-decoration: underline;
+            }
+            color: #000;
+            text-decoration: none;
+          }
+        }
+        .small-toggle-btn {
+          border: 1px solid #d9d9d9;
+          border-radius: 2px;
+          cursor: pointer;
+          display: inline-block;
+          height: 16px;
+          margin: 0 auto;
+          overflow: hidden;
+          padding: 0 0 5px 5px;
+          position: relative;
+          text-align: center;
+          vertical-align: middle;
+          width: 17px;
+          .small-play-btn {
+            &:before {
+              content: "\f04b";
+              font: 0.5em "FontAwesome";
+              padding: 0 5px 0 0;
+            }            
+            display: inline-block;
+          } 
+          .small-pause-btn {
+            &:before {
+              content: "\f04c";
+              font: 0.5em "FontAwesome";
+              padding: 0 5px 0 0;
+            }            
+            display: inline-block;
+          }         
+        }
+        .track-number {
+          display: inline-block;
+        }
+        .track-title {
+          display: inline-block;
+          .playlist-track {
+            text-decoration: none;
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+        .track-title.active-track {
+          font-weight: bold;
+        }
+        @include clearfix();
+      }
+    }
+  }//end .container
+}
