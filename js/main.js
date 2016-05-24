@@ -189,6 +189,17 @@ var audioPlayer = function() {
       }
     }, false);    
 
+    document.addEventListener("keyup", function(e) {
+      if ( e.which === 32 ) {
+        if ( _trackLoaded === false ) {
+            _currentTrack = parseInt(1);
+            _setTrack()
+        } else {
+          _playBack(); 
+        }
+      }
+    }, false);
+
     //User is moving progress indicator.
     _progressBarIndicator.addEventListener("mousedown", _mouseDown, false);
 
