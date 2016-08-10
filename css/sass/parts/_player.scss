@@ -1,0 +1,131 @@
+      .player {
+        height: 60px;
+        margin: 0 auto;
+        position: relative;
+        width: 400px;
+        @include media(tablet) {
+          width: 470px;
+        }
+        @include media(mediumDesktop) {
+            width: 470px;
+        }         
+        @include media(largeDesktop) {
+            width: 470px;
+        }                 
+        .large-toggle-btn {
+            background-color: #fff;
+            border: 1px solid #d9d9d9;
+            border-radius: 2px;
+            float: left;
+            height: 50px;
+            margin: 0 10px 0 0;
+            overflow: hidden;
+            position: relative;
+            text-align: center;
+            vertical-align: bottom;
+            width: 54px;
+            .large-play-icon {
+              &:before {
+                content: "\f04b";
+                font: 2.5em "FontAwesome";
+              }               
+              cursor: pointer; 
+              display: inline-block;
+              position: relative;
+            }
+            .large-pause-icon {
+              &:before {
+                content: "\f04c";
+                font: 2.5em "FontAwesome";
+              }   
+              cursor: pointer;
+              display: inline-block;
+              position: relative;
+            }                   
+        }//end .play-box
+        .info-box {
+          bottom: 10px;
+          left: 65px;
+          position: absolute;
+          top: 15px;
+          .track-info-box {
+            float: left;
+            font-size: 12px;
+            margin: 0 0 6px 0;
+            visibility: hidden;
+            width: 400px; 
+            .track-title-text {
+              display: inline-block;
+            }
+            .audio-time {
+              display: inline-block;
+              padding: 0 0 0 5px;
+              width: 80px;
+            }
+            @include clearfix();
+          }      
+        }
+        .progress-box {
+          float: left;
+          min-width: 270px;
+          position: relative;
+          .progress-cell {
+            height: 12px;
+            position: relative;
+            .progress {
+              background: #fff;
+              border: 1px solid #d9d9d9;
+              height: 8px;
+              position: relative;
+              width: auto;
+              .progress-buffer {
+                background: #337ab7;
+                height: 100%;
+                width: 0;
+              }
+              .progress-indicator {
+                background: #fff;
+                border: 1px solid #bebebe;
+                border-radius: 3px;
+                cursor: pointer;
+                height: 10px;
+                left: 0;
+                overflow: hidden;
+                position: absolute;
+                top: -2px;
+                width: 22px;
+              }
+            }
+          }
+        }//end .prgoress-box
+        .controls-box {
+          bottom: 10px;
+          left: 350px;
+          position: absolute; 
+          .previous-track-btn {
+            background-color: #fff;
+            border: 1px solid #d9d9d9;
+            cursor: pointer;
+            display: inline-block;
+            .previous-track-icon {
+              &:before {
+                content: "\f049";
+                font: 1em "FontAwesome";
+              } 
+            }      
+          }
+          .next-track-btn {
+            background-color: #fff;
+            border: 1px solid #d9d9d9;
+            cursor: pointer;
+            display: inline-block;
+            .next-track-icon {
+              &:before {
+                content: "\f050";
+                font: 1em "FontAwesome";
+              } 
+            }      
+          }                   
+        }
+        @include clearfix();
+      }//end .player
