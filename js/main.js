@@ -399,13 +399,13 @@ var audioPlayer = function() {
   **/
   var _updatePlayStatus = function(audioPlaying) {
     if ( audioPlaying ) {
-      _elements.playerButtons.largeToggleBtn.children[0].className = "large-pause-btn";
+      _elements.playerButtons.largeToggleBtn.children[0].className = "large-pause-icon";
 
-      _elements.playerButtons.smallToggleBtn[_currentTrack-1].children[0].className = "small-pause-btn";
+      _elements.playerButtons.smallToggleBtn[_currentTrack-1].children[0].className = "small-pause-icon";
     } else {
-      _elements.playerButtons.largeToggleBtn.children[0].className = "large-play-btn";
+      _elements.playerButtons.largeToggleBtn.children[0].className = "large-play-icon";
 
-      _elements.playerButtons.smallToggleBtn[_currentTrack-1].children[0].className = "small-play-btn";
+      _elements.playerButtons.smallToggleBtn[_currentTrack-1].children[0].className = "small-play-icon";
     }
 
     //Update next and previous buttons accordingly
@@ -447,11 +447,11 @@ var audioPlayer = function() {
   var _resetPlayStatus = function() {
     var smallToggleBtn = _elements.playerButtons.smallToggleBtn;
 
-    _elements.playerButtons.largeToggleBtn.children[0].className = "large-play-btn";
+    _elements.playerButtons.largeToggleBtn.children[0].className = "large-play-icon";
 
     for ( var i = 0; i < smallToggleBtn.length; i++ ) {
-      if ( smallToggleBtn[i].children[0].className === "small-pause-btn") {
-        smallToggleBtn[i].children[0].className = "small-play-btn";
+      if ( smallToggleBtn[i].children[0].className === "small-pause-icon") {
+        smallToggleBtn[i].children[0].className = "small-play-icon";
       }
     }
   };  
