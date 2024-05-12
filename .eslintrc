@@ -1,0 +1,13 @@
+{
+  "env": {
+    "browser": true
+  },
+  "extends": ["airbnb/base", "google"],
+  "rules": {
+    "max-len": [1, 120, 2, { "ignoreComments": true }],
+    "no-unused-vars": [1, { "vars": "local", "args": "none" }]
+  },
+  "globals": {
+    "google": true
+  }
+}
