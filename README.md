@@ -7,7 +7,7 @@
 - Clone the repo: git clone https://github.com/craigstroman/html5-audio-player.git
 - cd html5-audio-player-playlist
 - Install with npm: npm install
-- Start the server using gulp
+- Start the server using npm start
 
 ###### Version 2.0.0
 
