@@ -9,6 +9,10 @@
 - Install with npm: npm install
 - Start the server using npm start
 
+#### Example Site
+
+https://html5-audio-player.craigstroman.com/
+
 ###### Version 2.0.0
 
 - Switched to Webpack for compilation
