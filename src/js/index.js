@@ -1,4 +1,4 @@
-import Player from './player/player';
+import { Player } from './player/player';
 
 const audio = document.getElementById('audio');
 
@@ -11,7 +11,7 @@ const playerButtons = {
 
 const progressBar = document.querySelector('.progress-bar');
 
-const playListRows = Array.from(document.querySelectorAll('div.play-list-row'));
+const playListRows = document.querySelectorAll('div.play-list-row');
 
 const trackInfoBox = document.querySelector('.track-info-box');
 
