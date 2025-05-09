@@ -1,4 +1,4 @@
-export default class Player {
+export class Player {
   constructor(audio, playerButtons, progressBar, playListRows, trackInfoBox) {
     this.audio = audio;
     this.playerButtons = playerButtons;
